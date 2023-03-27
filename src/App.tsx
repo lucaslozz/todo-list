@@ -1,11 +1,13 @@
 
 
 
+import "./global.css"
+
 function App() {
 
 
   return (
-    console.log("oi")
+    <div><h1>ToDo List</h1></div>
     
   )
 }
