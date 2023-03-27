@@ -1,15 +1,11 @@
-
-
-
+import styles from "./App.module.css"
 import "./global.css"
+import { Header } from "./components/Header"
 
-function App() {
 
-
+export function App() {
   return (
-    <div><h1>ToDo List</h1></div>
-    
+   <div><Header/></div>
   )
 }
 
-export default App
