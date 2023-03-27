@@ -24,13 +24,35 @@
   transition: 0.15s;
 }
 
+.formContainer textarea:hover{
+  box-shadow: 0 0 0 1px var(--purple-500);
+}
+
 .formContainer textarea::placeholder{
   line-height: 1.4;
   color:var(--gray-300);
 }
 
 .formContainer button[type=submit]{
-  background: var(--blue-500)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 5.65rem;
+  height: 3.25rem;
+  padding: 1rem;
+  border-radius: 8px;
+  line-height: 1.4;
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  background: var(--blue-500);
+  border: transparent;
+  transition: 0.15s;
+}
+
+.formContainer button[type=submit]:hover{
+  background: var(--blue-300);
 }
 
 
