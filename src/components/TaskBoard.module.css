@@ -1,0 +1,29 @@
+.boardContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: 46rem;
+  height: 3.4rem;
+}
+
+.boardContainer > header{
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.boardContainer  .createdTask{
+  color: var(--blue-300);
+}
+
+.boardContainer  .completedTask{
+  color: var(--blue-300);
+}
+
+.boardContainer strong span{
+  background: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+}
