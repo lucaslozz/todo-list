@@ -1,7 +1,11 @@
 import styles from "./TaskBoard.module.css"
 import { TaskPost } from "./TaskPost"
 
-export function TaskBoard(){
+interface TaskBoardProps{
+  content:string[]
+}
+
+export function TaskBoard({content}:TaskBoardProps){
   return (
 
   <article className={styles.boardContainer}>
@@ -10,8 +14,9 @@ export function TaskBoard(){
       <strong className={styles.completedTask}>Concluídas <span>2 de 5</span></strong>
     </header> 
     <main className={styles.taskPostContainer}>
-      <TaskPost/>
-      <TaskPost/>
+      {content.map(task=>{
+        return <TaskPost key={task} content={task}/>
+      })}
     </main>
   </article>
   
