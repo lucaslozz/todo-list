@@ -19,15 +19,45 @@
   color: var(--gray-100);
 }
 
-.taskInfo button >svg{
- color: var(--blue-300);
-}
-
 .taskPost button {
   background: transparent;
   border: 0;
+  line-height: 0;
   color: var(--gray-300);
   border-radius: 2px;
   cursor: pointer;
 }
+.taskPost button:hover {
+ color: var(--red-500);
+}
 
+.taskInfo button{
+  line-height: 0;
+}
+
+.taskInfo button .checked{
+  fill: var(--purple-500);
+
+}
+
+
+.taskPost button .checked:hover{
+  fill: var(--purple-300);
+}
+
+.taskInfo button .default{
+  fill: var(--blue-300);
+ 
+}
+
+.taskInfo button .default:hover{
+  fill: var(--blue-500);
+  
+}
+
+.taskInfo .taskCompleted{
+  text-decoration: line-through;
+}
+.taskInfo .taskNotCompleted{
+  text-decoration: none;
+}

@@ -24,19 +24,18 @@ export function Input(){
     const withoutDeletedTask=content.filter(content =>{
       return content !== taskToDelete;
     })
-    setContent(withoutDeletedTask)
+    setContent(withoutDeletedTask);
   }
 
   return( 
       <div>
-      <form className={styles.formContainer} onSubmit={handleSubmit} >
-        <textarea name="input" placeholder="Adicione uma nova tarefa" onChange={handleChange} value={newTask} />
-        <button type="submit" >Criar <PlusCircle size={16} weight="bold"/></button>
-      </form>
-      <div>
-        <TaskBoard content={content} deleteTask={deleteTask}/>
-     </div>
-      
+        <form className={styles.formContainer} onSubmit={handleSubmit} >
+          <textarea name="input" placeholder="Adicione uma nova tarefa" onChange={handleChange} value={newTask} />
+          <button type="submit" >Criar <PlusCircle size={16} weight="bold"/></button>
+        </form>
+         <div>
+          <TaskBoard content={content} deleteTask={deleteTask}/>
+        </div>
       </div>
   )
 }
