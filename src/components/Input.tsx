@@ -1,5 +1,5 @@
 import { PlusCircle } from "@phosphor-icons/react"
-import { FormEvent, useState,ChangeEvent, TextareaHTMLAttributes } from "react"
+import { FormEvent, useState,ChangeEvent } from "react"
 import styles from "./Input.module.css"
 import { TaskBoard } from "./TaskBoard"
 
@@ -18,8 +18,13 @@ export function Input(){
     event.preventDefault();
     setContent([...content,...newTask])
     setNewTask([""])
+  }
 
-
+  function deleteTask(taskToDelete:string){
+    const withoutDeletedTask=content.filter(content =>{
+      return content !== taskToDelete;
+    })
+    setContent(withoutDeletedTask)
   }
 
   return( 
@@ -29,7 +34,7 @@ export function Input(){
         <button type="submit" >Criar <PlusCircle size={16} weight="bold"/></button>
       </form>
       <div>
-        <TaskBoard content={content} />
+        <TaskBoard content={content} deleteTask={deleteTask}/>
      </div>
       
       </div>
