@@ -1,15 +1,13 @@
-import { Trash } from "@phosphor-icons/react"
+import { Trash,Circle } from "@phosphor-icons/react"
 import styles from "./TaskPost.module.css"
 
 export function TaskPost(){
   return (
-  <div className={styles.taskPostContainer}>
     <div  className={styles.taskPost}>
-      <form className={styles.taskForm}>
-        <input type="checkBox" />
+        <div className={styles.taskInfo}>
+          <button><Circle size={17.45} weight="bold" /></button>
         <p>Montar projeto tic tac toe</p>
-      </form> 
+        </div>
       <button title="Deletar Comentário"><Trash /></button>
-      </div>
-  </div>)
+    </div>)
 }
