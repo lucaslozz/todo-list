@@ -9,28 +9,42 @@ import { v4 as uuidv4 } from 'uuid';
 
 export function Input(){
 
-  const [allTasks, setAllTesks]=useState<AllTasks[]>([])
-  const [newTask, setNewTask]=useState<AllTasks>({id:"",content:""})
+  const [allTasks, setAllTasks]=useState<AllTasks[]>([])
+  const [newTask, setNewTask]=useState<AllTasks>({id:"",content:"",isChecked:false})
 
+  console.log(allTasks)
   function handleChange(event:ChangeEvent<HTMLTextAreaElement>){
     let addNewTask = {
       id: uuidv4(),
-      content: event.target.value
+      content: event.target.value,
+      isChecked:false
     }
     setNewTask(addNewTask)
   }
 
+
   function handleSubmit(event:FormEvent<HTMLFormElement>){
     event.preventDefault();
-    setAllTesks([...allTasks,...[newTask]])
-    setNewTask({id:"",content:""})    
+    setAllTasks([...allTasks,...[newTask]])
+    setNewTask({id:"",content:"",isChecked:false})    
   }
 
   function deleteTask(taskToDelete:AllTasks){
     const withoutDeletedTask=allTasks.filter(content =>{
       return content.id !== taskToDelete.id;
     })
-    setAllTesks(withoutDeletedTask);
+    setAllTasks(withoutDeletedTask);
+  }
+
+  function refreshTaskStatus(taskToRefresh:AllTasks){
+    const taskRefreshed=allTasks.map(item=>{
+      if(item.id===taskToRefresh.id){
+        item.id=taskToRefresh.id;
+      }
+      return item
+    })
+    setAllTasks(taskRefreshed)
+
   }
 
   return( 
@@ -40,7 +54,7 @@ export function Input(){
           <button type="submit" >Criar <PlusCircle size={16} weight="bold"/></button>
         </form>
          <div>
-          <TaskBoard content={allTasks} deleteTask={deleteTask}/>
+          <TaskBoard content={allTasks} deleteTask={deleteTask} refreshTaskStatus={refreshTaskStatus}/>
         </div>
       </div>
   )

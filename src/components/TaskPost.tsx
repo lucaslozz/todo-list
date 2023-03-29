@@ -6,34 +6,28 @@ import { AllTasks } from "./TaskBoard";
 interface TaskPostProps{
   task:AllTasks;
   deleteTask: (content:AllTasks)=> void
-  isCompleted: (content:boolean)=>void
-  
+  refreshTaskStatus:(taskToRefresh:AllTasks)=>void
 }
 
-export function TaskPost({task,deleteTask,isCompleted}:TaskPostProps){
-
-  const [isChecked, setIsChecked]=useState<boolean>(false)
-  
+export function TaskPost({task,deleteTask,refreshTaskStatus}:TaskPostProps){
 
   function handleDeleteTask(){
     deleteTask(task);
   }
 
   function handleChecked(){
-    setIsChecked(() => {
-      isCompleted(!isChecked)
-      return !isChecked;
-    });
+    task.isChecked=!task.isChecked
+    refreshTaskStatus(task)
   }
   
   return (
     <div  className={styles.taskPost}>
       <div className={styles.taskInfo}>
         <button onClick={handleChecked}>
-        {!isChecked? 
+        {!task.isChecked? 
         <Circle size={17.45} className={styles.default} />:<CheckCircle size={17.45} weight="fill" className={styles.checked}/>}
         </button>
-        <p className={isChecked? styles.taskCompleted:styles.taskNotCompled}>{task.content}</p>
+        <p className={task.isChecked? styles.taskCompleted:styles.taskNotCompled}>{task.content}</p>
       </div>
       <button type="button" title="Deletar Comentário" onClick={handleDeleteTask}><Trash /></button>
     </div>)
