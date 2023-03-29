@@ -5,20 +5,24 @@ import styles from "./TaskPost.module.css"
 interface TaskPostProps{
   content:string;
   deleteTask: (content:string)=> void
+  isCompleted: (content:boolean)=>void
+  
 }
 
-export function TaskPost({content,deleteTask}:TaskPostProps){
+export function TaskPost({content,deleteTask,isCompleted}:TaskPostProps){
 
   const [isChecked, setIsChecked]=useState<boolean>(false)
-  const [completed, isCompleted]=useState<number>(0)
+  
 
   function handleDeleteTask(){
     deleteTask(content);
   }
 
   function handleChecked(){
-    setIsChecked(!isChecked);
-
+    setIsChecked(() => {
+      isCompleted(!isChecked)
+      return !isChecked;
+    });
   }
   
   return (
@@ -27,9 +31,8 @@ export function TaskPost({content,deleteTask}:TaskPostProps){
         <button onClick={handleChecked}>
         {!isChecked? 
         <Circle size={17.45} className={styles.default} />:<CheckCircle size={17.45} weight="fill" className={styles.checked}/>}
-  
         </button>
-        <p className={isChecked? styles.taskCompleted:styles.taskNotCompleted}>{content}</p>
+        <p className={isChecked? styles.taskCompleted:styles.taskNotCompled}>{content}</p>
       </div>
       <button type="button" title="Deletar Comentário" onClick={handleDeleteTask}><Trash /></button>
     </div>)
