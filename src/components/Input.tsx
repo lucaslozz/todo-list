@@ -2,39 +2,45 @@ import { PlusCircle } from "@phosphor-icons/react"
 import { FormEvent, useState,ChangeEvent } from "react"
 import styles from "./Input.module.css"
 import { TaskBoard } from "./TaskBoard"
+import { AllTasks } from "./TaskBoard"
+import { v4 as uuidv4 } from 'uuid';
 
 
 
 export function Input(){
 
-  const [content, setContent]=useState<string[]>([])
-  const [newTask, setNewTask]=useState<string[]>([])
+  const [allTasks, setAllTesks]=useState<AllTasks[]>([])
+  const [newTask, setNewTask]=useState<AllTasks>({id:"",content:""})
 
   function handleChange(event:ChangeEvent<HTMLTextAreaElement>){
-    setNewTask([event.target.value])
+    let addNewTask = {
+      id: uuidv4(),
+      content: event.target.value
+    }
+    setNewTask(addNewTask)
   }
 
   function handleSubmit(event:FormEvent<HTMLFormElement>){
     event.preventDefault();
-    setContent([...content,...newTask])
-    setNewTask([""])
+    setAllTesks([...allTasks,...[newTask]])
+    setNewTask({id:"",content:""})    
   }
 
-  function deleteTask(taskToDelete:string){
-    const withoutDeletedTask=content.filter(content =>{
-      return content !== taskToDelete;
+  function deleteTask(taskToDelete:AllTasks){
+    const withoutDeletedTask=allTasks.filter(content =>{
+      return content.id !== taskToDelete.id;
     })
-    setContent(withoutDeletedTask);
+    setAllTesks(withoutDeletedTask);
   }
 
   return( 
       <div>
         <form className={styles.formContainer} onSubmit={handleSubmit} >
-          <textarea name="input" placeholder="Adicione uma nova tarefa" onChange={handleChange} value={newTask} />
+          <textarea name="input" placeholder="Adicione uma nova tarefa" onChange={handleChange} value={newTask.content} />
           <button type="submit" >Criar <PlusCircle size={16} weight="bold"/></button>
         </form>
          <div>
-          <TaskBoard content={content} deleteTask={deleteTask}/>
+          <TaskBoard content={allTasks} deleteTask={deleteTask}/>
         </div>
       </div>
   )

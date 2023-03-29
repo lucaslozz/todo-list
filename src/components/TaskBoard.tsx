@@ -2,9 +2,19 @@ import { useState } from "react";
 import styles from "./TaskBoard.module.css"
 import { TaskPost } from "./TaskPost"
 
-interface TaskBoardProps{
-  content:string[];
-  deleteTask: (content:string)=> void
+
+
+export interface AllTasks{
+  id:string;
+  content:string;
+  isChecked?:boolean
+}
+
+
+
+interface TaskBoardProps {
+  content:AllTasks[]
+  deleteTask: (content:AllTasks)=> void
 }
 
 export function TaskBoard({content,deleteTask}:TaskBoardProps){
@@ -26,8 +36,8 @@ export function TaskBoard({content,deleteTask}:TaskBoardProps){
       <strong className={styles.completedTask}>Concluídas <span>{completedTask} de {content.length}</span></strong>
     </header> 
     <main className={styles.taskPostContainer}>
-      {content.map(content=>{
-        return <TaskPost key={content} content={content} deleteTask={deleteTask} isCompleted={isCompleted} />
+      {content.map(item=>{
+        return <TaskPost key={item.id} task={item} deleteTask={deleteTask} isCompleted={isCompleted} />
       })}
     </main>
   </article>

@@ -1,21 +1,22 @@
 import { Trash,Circle, CheckCircle } from "@phosphor-icons/react"
 import { useState } from "react";
 import styles from "./TaskPost.module.css"
+import { AllTasks } from "./TaskBoard";
 
 interface TaskPostProps{
-  content:string;
-  deleteTask: (content:string)=> void
+  task:AllTasks;
+  deleteTask: (content:AllTasks)=> void
   isCompleted: (content:boolean)=>void
   
 }
 
-export function TaskPost({content,deleteTask,isCompleted}:TaskPostProps){
+export function TaskPost({task,deleteTask,isCompleted}:TaskPostProps){
 
   const [isChecked, setIsChecked]=useState<boolean>(false)
   
 
   function handleDeleteTask(){
-    deleteTask(content);
+    deleteTask(task);
   }
 
   function handleChecked(){
@@ -32,7 +33,7 @@ export function TaskPost({content,deleteTask,isCompleted}:TaskPostProps){
         {!isChecked? 
         <Circle size={17.45} className={styles.default} />:<CheckCircle size={17.45} weight="fill" className={styles.checked}/>}
         </button>
-        <p className={isChecked? styles.taskCompleted:styles.taskNotCompled}>{content}</p>
+        <p className={isChecked? styles.taskCompleted:styles.taskNotCompled}>{task.content}</p>
       </div>
       <button type="button" title="Deletar Comentário" onClick={handleDeleteTask}><Trash /></button>
     </div>)
