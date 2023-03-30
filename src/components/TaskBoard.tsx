@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./TaskBoard.module.css"
 import { TaskPost } from "./TaskPost"
-import ClipBoard from "../assets/ClipBoard.svg"
+import clipBoard from "../assets/clipBoard.svg"
 
 
 
@@ -41,7 +41,7 @@ export function TaskBoard({content,deleteTask,refreshTaskStatus}:TaskBoardProps)
       {content.length ===0 && 
      
         <div className={styles.taskBoardeEmptyContainer}>
-          <img src={ClipBoard} alt="ClipBoard" />
+          <img src={clipBoard} alt="ClipBoard" />
           <div className={styles.infoEmpty}>
             <strong>Você ainda não tem tarefas cadastradas</strong>
             <p>Crie tarefas e organize seus itens a fazer</p>
