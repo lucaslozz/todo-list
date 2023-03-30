@@ -57,3 +57,8 @@
 .taskPostContainer{
   margin-bottom: 4rem;
 }
+@media(max-width:768px){
+  .boardContainer{
+    width: 30rem;
+  }
+}
