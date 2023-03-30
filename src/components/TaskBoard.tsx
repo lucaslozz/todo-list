@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./TaskBoard.module.css"
 import { TaskPost } from "./TaskPost"
+import ClipBoard from "../assets/ClipBoard.svg"
 
 
 
@@ -36,6 +37,18 @@ export function TaskBoard({content,deleteTask,refreshTaskStatus}:TaskBoardProps)
       <strong className={styles.completedTask}>Concluídas <span>{completedTask? `${completedTask} de ${content.length}`:completedTask}</span></strong>
     </header> 
     <main className={styles.taskPostContainer}>
+
+      {content.length ===0 && 
+     
+        <div className={styles.taskBoardeEmptyContainer}>
+          <img src={ClipBoard} alt="ClipBoard" />
+          <div className={styles.infoEmpty}>
+            <strong>Você ainda não tem tarefas cadastradas</strong>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+          </div>
+        </div>
+    }
+
       {content.map(item=>{
         return <TaskPost key={item.id} task={item} deleteTask={deleteTask} refreshTaskStatus={refreshTaskStatus} />
       })}
