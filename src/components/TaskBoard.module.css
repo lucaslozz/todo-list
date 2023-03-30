@@ -53,3 +53,7 @@
   line-height: 1.4;
   color: var(--gray-300);
 }
+
+.taskPostContainer{
+  margin-bottom: 4rem;
+}
