@@ -1,24 +1,25 @@
-.formContainer{
+.formContainer {
   display: flex;
-  padding: 0;
+  padding: 0 1.5rem;
   position: relative;
   top: -1.68rem;
   gap: 0.5rem;
-  margin-right:auto;
+  margin-right: auto;
   margin-left: auto;
-  width: 46rem;
+  max-width: 46rem;
+  width: 100%;
   height: 3.4rem;
   justify-content: center;
   align-items: center;
 }
 
-.formContainer textarea{
+.formContainer textarea {
   width: 100%;
   height: 100%;
   padding: 1rem;
   overflow-y: hidden;
   line-height: 1.4;
-  resize:none;
+  resize: none;
   background: var(--gray-500);
   color: var(--gray-100);
   border-radius: 8px;
@@ -26,16 +27,16 @@
   transition: 0.15s;
 }
 
-.formContainer textarea:hover{
+.formContainer textarea:hover {
   box-shadow: 0 0 0 1px var(--purple-500);
 }
 
-.formContainer textarea::placeholder{
+.formContainer textarea::placeholder {
   line-height: 1.4;
-  color:var(--gray-300);
+  color: var(--gray-300);
 }
 
-.formContainer button[type=submit]{
+.formContainer button[type=submit] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,26 +54,19 @@
   transition: 0.15s;
 }
 
-.formContainer button[type=submit]:hover{
+.formContainer button[type=submit]:hover {
   background: var(--blue-300);
 }
 
-:focus{
+:focus {
   outline: transparent;
   box-shadow: 0 0 0 1px var(--purple-500);
 }
 
-@media(max-width:768px){
-  .formContainer{
-    width: 30rem;
+@media(max-width:380px) {
+  .formContainer textarea::placeholder {
+    line-height: 1;
+    font-size: 0.875rem;
+
   }
 }
-
-
-
-
-
-
-
-
-
