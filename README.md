@@ -87,7 +87,7 @@ $ yarn dev
 
 ### ToDo List Web Mobile
 
-![image](https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/web-mobile.png?raw=true)
+![image](https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/mobile-screen.png?raw=true)
 
 
 
