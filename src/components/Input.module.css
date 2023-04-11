@@ -54,7 +54,7 @@
   transition: 0.15s;
 }
 
-.formContainer button[type=submit]:hover {
+.formContainer button[type=submit]:not(:disabled):hover {
   background: var(--blue-300);
 }
 

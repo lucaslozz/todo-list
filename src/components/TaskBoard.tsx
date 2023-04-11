@@ -1,25 +1,13 @@
 import styles from './TaskBoard.module.css'
 import { TaskPost } from './TaskPost'
 import clipBoard from '../assets/clipBoard.svg'
+import { TaskContext } from '../context/TaskContext'
+import { useContext } from 'react'
 
-export interface AllTasks {
-  id: string
-  content: string
-  isChecked: boolean
-}
+export function TaskBoard() {
+  const { allTasks } = useContext(TaskContext)
 
-interface TaskBoardProps {
-  content: AllTasks[]
-  deleteTask: (content: AllTasks) => void
-  refreshTaskStatus: (taskToRefresh: AllTasks) => void
-}
-
-export function TaskBoard({
-  content,
-  deleteTask,
-  refreshTaskStatus,
-}: TaskBoardProps) {
-  const completedTask = content.reduce((acc, item) => {
+  const completedTask = allTasks.reduce((acc, item) => {
     if (item.isChecked === true) {
       acc++
     }
@@ -30,19 +18,19 @@ export function TaskBoard({
     <article className={styles.boardContainer}>
       <header>
         <strong className={styles.createdTask}>
-          Tarefas criadas <span>{content.length}</span>
+          Tarefas criadas <span>{allTasks.length}</span>
         </strong>
         <strong className={styles.completedTask}>
           Concluídas{' '}
           <span>
             {completedTask
-              ? `${completedTask} de ${content.length}`
+              ? `${completedTask} de ${allTasks.length}`
               : completedTask}
           </span>
         </strong>
       </header>
       <main className={styles.taskPostContainer}>
-        {content.length === 0 && (
+        {allTasks.length === 0 && (
           <div className={styles.taskBoardeEmptyContainer}>
             <img src={clipBoard} alt="ClipBoard" />
             <div className={styles.infoEmpty}>
@@ -52,15 +40,8 @@ export function TaskBoard({
           </div>
         )}
 
-        {content.map((item) => {
-          return (
-            <TaskPost
-              key={item.id}
-              task={item}
-              deleteTask={deleteTask}
-              refreshTaskStatus={refreshTaskStatus}
-            />
-          )
+        {allTasks.map((task) => {
+          return <TaskPost key={task.id} task={task} />
         })}
       </main>
     </article>

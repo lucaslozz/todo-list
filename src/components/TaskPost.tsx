@@ -1,18 +1,19 @@
 import { Trash, Circle, CheckCircle } from '@phosphor-icons/react'
 import styles from './TaskPost.module.css'
-import { AllTasks } from './TaskBoard'
+import { useContext } from 'react'
+import { TaskContext } from '../context/TaskContext'
 
+interface AllTasks {
+  id: string
+  content: string
+  isChecked: boolean
+}
 interface TaskPostProps {
   task: AllTasks
-  deleteTask: (content: AllTasks) => void
-  refreshTaskStatus: (taskToRefresh: AllTasks) => void
 }
 
-export function TaskPost({
-  task,
-  deleteTask,
-  refreshTaskStatus,
-}: TaskPostProps) {
+export function TaskPost({ task }: TaskPostProps) {
+  const { deleteTask, refreshTaskStatus } = useContext(TaskContext)
   function handleDeleteTask() {
     deleteTask(task)
   }

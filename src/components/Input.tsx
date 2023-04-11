@@ -1,17 +1,14 @@
 import { PlusCircle } from '@phosphor-icons/react'
-import { FormEvent, useState, ChangeEvent } from 'react'
+import { FormEvent, ChangeEvent, useContext } from 'react'
 import styles from './Input.module.css'
-import { TaskBoard, AllTasks } from './TaskBoard'
+import { TaskBoard } from './TaskBoard'
 
 import { v4 as uuidv4 } from 'uuid'
+import { TaskContext } from '../context/TaskContext'
 
 export function Input() {
-  const [allTasks, setAllTasks] = useState<AllTasks[]>([])
-  const [newTask, setNewTask] = useState<AllTasks>({
-    id: '',
-    content: '',
-    isChecked: false,
-  })
+  const { newTask, createNewTask, storageNewTaskFromInput } =
+    useContext(TaskContext)
 
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
     const addNewTask = {
@@ -19,34 +16,16 @@ export function Input() {
       content: event.target.value,
       isChecked: false,
     }
-    setNewTask(addNewTask)
+    storageNewTaskFromInput(addNewTask)
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setAllTasks([...allTasks, ...[newTask]])
-    setNewTask({ id: '', content: '', isChecked: false })
-  }
-
-  function deleteTask(taskToDelete: AllTasks) {
-    const withoutDeletedTask = allTasks.filter((content) => {
-      return content.id !== taskToDelete.id
-    })
-    setAllTasks(withoutDeletedTask)
-  }
-
-  function refreshTaskStatus(taskToRefresh: AllTasks) {
-    const taskRefreshed = allTasks.map((item) => {
-      if (item.id === taskToRefresh.id) {
-        item.id = taskToRefresh.id
-      }
-      return item
-    })
-    setAllTasks(taskRefreshed)
+    createNewTask()
   }
 
   return (
-    <div>
+    <main>
       <form className={styles.formContainer} onSubmit={handleSubmit}>
         <textarea
           name="input"
@@ -59,12 +38,8 @@ export function Input() {
         </button>
       </form>
       <div>
-        <TaskBoard
-          content={allTasks}
-          deleteTask={deleteTask}
-          refreshTaskStatus={refreshTaskStatus}
-        />
+        <TaskBoard />
       </div>
-    </div>
+    </main>
   )
 }
