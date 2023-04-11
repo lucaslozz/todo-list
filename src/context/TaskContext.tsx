@@ -48,7 +48,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
   function refreshTaskStatus(taskToRefresh: AllTasks) {
     const taskRefreshed = allTasks.map((item) => {
       if (item.id === taskToRefresh.id) {
-        item.isChecked = !item.isChecked
+        item = taskToRefresh
       }
 
       return item
