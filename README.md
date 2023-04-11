@@ -75,13 +75,15 @@ $ yarn dev
 
 ### ToDO List Web
 
-![image](https://raw.githubusercontent.com/lucaslozz/todo-list/ce1e4e3163093de3ca01255621d1c3c457156293/src/assets/Clipboard.svg)
-
-
-
+<div align="center">
+<img alt="" title="" src="https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/web-screen.png?raw=true" width="1200px" />
+</div>
 ### ToDO List Mobile
 
-<img alt="" title="" src="./src/assets/mobile-screen-1.png" width="1200px" />
+<div align="center">
+<img alt="" title="" src="https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/mobile-screen-1.png?raw=true" width="1200px" />
+<img alt="" title="" src="https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/mobile-screen-2.png?raw=true" width="1200px" />
+</div>
 
 
 ---
