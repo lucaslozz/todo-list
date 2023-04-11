@@ -1,23 +1,32 @@
 <h1 align="center">
   <br>
-  ToDo List Web App
+   ToDo List Web App
 </h1>
 
 <h4 align="center">
-  ToDo List Web App with TypeScript and React
+   ToDo List Web App with TypeScript and React
 </h4>
-<div align="center">
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/lucaslozz/todo-list">
 
-  ![GitHub top language](https://img.shields.io/github/languages/top/lucaslozz/todo-list)
-  ![GitHub language count](https://img.shields.io/github/languages/count/lucaslozz/todo-list)
-  ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/lucaslozz/todo-list)
-  ![GitHub repo size](https://img.shields.io/github/repo-size/lucaslozz/todo-list)
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lucaslozz/todo-list">
   
-  ![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/lucaslozz/todo-list)
- ![GitHub last commit](https://img.shields.io/github/last-commit/lucaslozz/todo-list)
- ![GitHub issues](https://img.shields.io/github/issues/lucaslozz/todo-list) 
+  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/lucaslozz/todo-list">
 
-</div>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/lucaslozz/todo-list">
+  <br />
+  <a href="https://github.com/lucaslozz/todo-list/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lucaslozz/todo-list">
+  </a>
+
+  <a href="https://github.com/lucaslozz/todo-list/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/lucaslozz/todo-list">
+  </a>
+
+ 
+
+  
+</p>
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -34,7 +43,6 @@ This project was developed with the following technologies:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [Eslint](https://eslint.org/)
-
 
 ## :information_source: How To Run
 
@@ -54,7 +62,7 @@ $ yarn install
 
 # Run the app on two terminals
 $ yarn dev
-
+```
 
 ## :runner: Next steps
 
@@ -73,19 +81,16 @@ $ yarn dev
 
 ## :camera: Screenshots
 
-### ToDO List Web
+### ToDo List Web App
 
-<div align="center">
-<img alt="" title="" src="https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/web-screen.png?raw=true" width="1200px" />
-</div>
-### ToDO List Mobile
+![image](https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/web-screen.png?raw=true)
 
-<div align="center">
-<img alt="" title="" src="https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/mobile-screen-1.png?raw=true" width="1200px" />
-<img alt="" title="" src="https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/mobile-screen-2.png?raw=true" width="1200px" />
-</div>
+### ToDo List Web Mobile
+
+![image](https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/web-mobile.png?raw=true)
+
 
 
 ---
 
-Made with ♥ by LucasLoz :wave: [Get in touch!](https://www.linkedin.com/in/lucas-ferreira-loz-82796a11b/)
+Made with ♥ by loz :wave: [Get in touch!](https://www.linkedin.com/in/lozz/)
