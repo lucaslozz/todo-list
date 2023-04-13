@@ -1,6 +1,6 @@
 import styles from './Header.module.css'
-import logo from '../assets/todo.svg'
-import rocket from '../assets/rocket.svg'
+import logo from '../../assets/todo.svg'
+import rocket from '../../assets/rocket.svg'
 
 export function Header() {
   return (

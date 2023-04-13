@@ -29,11 +29,16 @@
 </p>
 
 <p align="center">
+  <a href="#chart_with_upwards_trend-overview">Overview</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-run">How To Run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#runner-next-steps">Next Steps</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#camera-screenshots">Screenshots</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
+
+## :chart_with_upwards_trend: Overview
+
+This project is a solution to the To Do List challenge on rocketseat bootcamp.
 
 ## :rocket: Technologies
 
@@ -42,7 +47,6 @@ This project was developed with the following technologies:
 - [ReactJS](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
-- [Eslint](https://eslint.org/)
 
 ## :information_source: How To Run
 
@@ -71,6 +75,7 @@ $ yarn dev
 - [x] Implement layout desktop
 - [x] Implement layout mobile
 - [x] Handle state
+- [ ] Add Reducer
 - [ ] Add save local storage feature
 - [ ] Add unit tests for add new task
 - [ ] Add unit tests for is checked feature
@@ -84,12 +89,6 @@ $ yarn dev
 ### ToDo List Web App
 
 ![image](https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/web-screen.png?raw=true)
-
-### ToDo List Web Mobile
-
-![image](https://github.com/lucaslozz/todo-list/blob/main/src/assets/readme/mobile-screen.png?raw=true)
-
-
 
 ---
 

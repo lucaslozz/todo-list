@@ -1,6 +1,6 @@
 import './global.css'
-import { Header } from './components/Header'
-import { Input } from './components/Input'
+import { Header } from './components/Header/Header'
+import { Input } from './components/Input/Input'
 import styles from './App.module.css'
 import { TaskContextProvider } from './context/TaskContext'
 

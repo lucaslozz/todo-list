@@ -1,7 +1,7 @@
 import styles from './TaskBoard.module.css'
-import { TaskPost } from './TaskPost'
-import clipboard from '../assets/clipboard.svg'
-import { TaskContext } from '../context/TaskContext'
+import { TaskPost } from './TaskPost/TaskPost'
+import clipboard from '../../assets/clipboard.svg'
+import { TaskContext } from '../../context/TaskContext'
 import { useContext } from 'react'
 
 export function TaskBoard() {

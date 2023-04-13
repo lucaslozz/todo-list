@@ -1,10 +1,10 @@
 import { PlusCircle } from '@phosphor-icons/react'
 import { FormEvent, ChangeEvent, useContext } from 'react'
 import styles from './Input.module.css'
-import { TaskBoard } from './TaskBoard'
+import { TaskBoard } from '../TaskBoard/TaskBoard'
 
 import { v4 as uuidv4 } from 'uuid'
-import { TaskContext } from '../context/TaskContext'
+import { TaskContext } from '../../context/TaskContext'
 
 export function Input() {
   const { newTask, createNewTask, storageNewTaskFromInput } =

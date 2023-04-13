@@ -1,7 +1,7 @@
 import { Trash, Circle, CheckCircle } from '@phosphor-icons/react'
 import styles from './TaskPost.module.css'
 import { useContext } from 'react'
-import { TaskContext } from '../context/TaskContext'
+import { TaskContext } from '../../../context/TaskContext'
 
 interface AllTasks {
   id: string
