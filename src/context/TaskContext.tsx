@@ -1,5 +1,10 @@
 import { ReactNode, createContext, useReducer, useState } from 'react'
 import { AllTasks, taskReducer } from '../reducers/tasks/reducer'
+import {
+  creteNewTaskAction,
+  deleteTaskAction,
+  refreshTaskStatusAction,
+} from '../reducers/tasks/actions'
 
 interface TaskContextProviderProps {
   children: ReactNode
@@ -30,19 +35,16 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
   }
 
   function createNewTask() {
-    dispatch({
-      type: 'CREATE_NEW_TASK_ACTION',
-      payload: { newTask },
-    })
+    dispatch(creteNewTaskAction(newTask))
     setNewTask({ id: '', content: '', isChecked: false })
   }
 
   function deleteTask(taskToDelete: AllTasks) {
-    dispatch({ type: 'DELETE_TASK_ACTION', payload: { taskToDelete } })
+    dispatch(deleteTaskAction(taskToDelete))
   }
 
   function refreshTaskStatus(taskToRefresh: AllTasks) {
-    dispatch({ type: 'REFRESH_TASK_STATUS_ACTION', payload: { taskToRefresh } })
+    dispatch(refreshTaskStatusAction(taskToRefresh))
   }
 
   return (
