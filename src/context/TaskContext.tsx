@@ -1,13 +1,8 @@
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useReducer, useState } from 'react'
+import { AllTasks, taskReducer } from '../reducers/tasks/reducer'
 
 interface TaskContextProviderProps {
   children: ReactNode
-}
-
-interface AllTasks {
-  id: string
-  content: string
-  isChecked: boolean
 }
 
 interface TaskContextType {
@@ -22,39 +17,34 @@ interface TaskContextType {
 export const TaskContext = createContext({} as TaskContextType)
 
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
-  const [allTasks, setAllTasks] = useState<AllTasks[]>([])
+  const [taskState, dispatch] = useReducer(taskReducer, { allTasks: [] })
+  const { allTasks } = taskState
   const [newTask, setNewTask] = useState<AllTasks>({
     id: '',
     content: '',
     isChecked: false,
   })
 
-  function createNewTask() {
-    setAllTasks([...allTasks, ...[newTask]])
-    setNewTask({ id: '', content: '', isChecked: false })
-  }
-
   function storageNewTaskFromInput(newTask: AllTasks) {
     setNewTask(newTask)
   }
 
-  function deleteTask(taskToDelete: AllTasks) {
-    const withoutDeletedTask = allTasks.filter((content) => {
-      return content.id !== taskToDelete.id
+  function createNewTask() {
+    dispatch({
+      type: 'CREATE_NEW_TASK_ACTION',
+      payload: { newTask },
     })
-    setAllTasks(withoutDeletedTask)
+    setNewTask({ id: '', content: '', isChecked: false })
+  }
+
+  function deleteTask(taskToDelete: AllTasks) {
+    dispatch({ type: 'DELETE_TASK_ACTION', payload: { taskToDelete } })
   }
 
   function refreshTaskStatus(taskToRefresh: AllTasks) {
-    const taskRefreshed = allTasks.map((item) => {
-      if (item.id === taskToRefresh.id) {
-        item = taskToRefresh
-      }
-
-      return item
-    })
-    setAllTasks(taskRefreshed)
+    dispatch({ type: 'REFRESH_TASK_STATUS_ACTION', payload: { taskToRefresh } })
   }
+
   return (
     <TaskContext.Provider
       value={{

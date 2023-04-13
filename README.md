@@ -75,7 +75,7 @@ $ yarn dev
 - [x] Implement layout desktop
 - [x] Implement layout mobile
 - [x] Handle state
-- [ ] Add Reducer
+- [x] Add Reducer
 - [ ] Add save local storage feature
 - [ ] Add unit tests for add new task
 - [ ] Add unit tests for is checked feature

@@ -33,7 +33,7 @@ export function Input() {
           onChange={handleChange}
           value={newTask.content}
         />
-        <button type="submit" disabled={newTask.content.length === 0}>
+        <button type="submit" disabled={newTask.content?.length === 0}>
           Criar <PlusCircle size={16} weight="bold" />
         </button>
       </form>
